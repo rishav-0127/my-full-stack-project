@@ -1,0 +1,85 @@
+<% layout("/layouts/boilerplate")%>
+<body>
+    <br> <br>
+    <h3>Edit Listing</h3>
+    <form method="POST" action="/listings/<%= currentListing._id %>?_method=PUT" novalidate class="needs-validation"  enctype="multipart/form-data">
+            <div class="mb-3">
+              <label for="title" class="form-label">Title</label>
+              <input
+                name="listing[title]"
+                class="form-control"
+                value="<%= currentListing.title %>"
+                type="text"
+                id="title"
+                required
+              >
+            </div>
+          
+            <div class="mb-3">
+              <label for="description" class="form-label">Description</label>
+              <textarea
+                name="listing[description]"
+                class="form-control"
+                id="description"
+                required
+              ><%= currentListing.description %></textarea>
+            </div>
+            <div class="mb-3">
+              Original Image <br>
+              <img src=" <%= originalImageUrl %>" alt="">
+            </div>
+           
+            <div class="mb-3">
+              <label for="image" class="form-label">Upload New Image</label>
+              <input
+                name="listing[image]"
+                class="form-control"
+                value="<%= currentListing.image.url %>"
+                type="file"
+                id="image"
+             
+              >
+            </div>
+          
+            <div class="row">
+              <div class="mb-3 col-md-4">
+                <label for="price" class="form-label">Price</label>
+                <input
+                  name="listing[price]"
+                  class="form-control"
+                  value="<%= currentListing.price %>"
+                  type="number"
+                  id="price"
+                  required
+                >
+              </div>
+              <div class="mb-3 col-md-8">
+                <label for="country" class="form-label">Country</label>
+                <input
+                  name="listing[country]"
+                  class="form-control"
+                  value="<%= currentListing.country %>"
+                  type="text"
+                  id="country"
+                  required
+                >
+              </div>
+            </div>
+          
+            <div class="mb-3">
+              <label for="location" class="form-label">Location</label>
+              <input
+                name="listing[location]"
+                class="form-control"
+                value="<%= currentListing.location %>"
+                type="text"
+                id="location"
+                required
+              >
+            </div>
+          
+            <button type="submit" class="btn btn-dark add-btn">Update</button>
+        <br> <br>  
+        </form>
+        
+</body>
