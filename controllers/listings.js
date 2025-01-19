@@ -3,7 +3,7 @@ const Review = require("../models/reviews.js");
 module.exports.index = async (req, res) => {
  
     const allListings = await Listing.find();
-    res.render("listings", { allListings });
+    res.render("listings/index", { allListings });
 }
 module.exports.renderNewForm = (req, res) => {
     res.render("listings/new", { currentListing: {} });
